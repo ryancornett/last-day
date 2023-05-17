@@ -2,19 +2,45 @@ const seconds = document.querySelector('.seconds');
 const minutes = document.querySelector('.minutes');
 const hours = document.querySelector('.hours');
 const days = document.querySelector('.days');
+const topImage = document.querySelector('.top-image');
+const bottomImage = document.querySelector('.bottom-image');
+const topImageArray = ["img/kenan-top.png", "img/farley-top.png", "img/confused-girl-top.png", "img/threeve-top.png", "img/blind-top.png", "img/scratch-top.png", "img/andy-top.png"];
+const bottomImageArray = ["img/kenan-bottom.png", "img/farley-bottom.png", "img/confused-girl-bottom.png", "img/threeve-bottom.png", "img/blind-bottom.png", "img/scratch-bottom.png", "img/andy-bottom.png"];
+const backgroundArray = ["img/kenan-full.png", "img/farley-full.png", "img/confused-girl-full.png", "img/threeve-full.png", "img/blind-full.png", "img/scratch-full.png", "img/andy-full.png"]
+const cycleBox = document.querySelector('.seconds-ones-box');
+const rotatingBackground = document.querySelector('.rotating-bg');
+rotatingBackground.style.backgroundImage = `url(img/question-mark.png)`
+const dropBackground = document.querySelector('.drop-box');
 
-seconds.innerHTML = `<div class="flip-box kenan-bg">
-                        <div class="seconds-tens-box">
-                            <div class="front">
-                                <img src="img/kenan-top.png" alt="Question mark" class="q-mark">
-                            </div>
-                            <div class="back">
-                                <img src="img/kenan-bottom.png" alt="Question mark" class="q-mark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flip-box question-bg">
-                        <div class="seconds-ones-box">
+const oneSecondCycle = setInterval(cycleImages, 1000);
+let count = 0;
+function cycleImages() {
+    rotatingBackground.style.backgroundImage = `url(${backgroundArray[count]}`;
+    if (count > 0) {
+        let flip = topImageArray[count-1];
+        topImage.setAttribute('src', flip);
+    } else {
+        let flip = topImageArray[6];
+        topImage.setAttribute('src', flip);
+    };
+    let drop = bottomImageArray[count];
+    bottomImage.setAttribute('src', drop);
+    if (count === 0) {
+        dropBackground.style.backgroundImage = `url(${backgroundArray[6]})`;
+    } else {
+        dropBackground.style.backgroundImage = `url(${backgroundArray[count-1]})`;
+    };
+    count++;
+    if (count === topImageArray.length) {
+        drop = topImageArray[6];
+        count = 0;
+    }
+}
+
+
+function generateQuestionMarks(time, boxTens, boxOnes) {
+    time.innerHTML = `<div class="flip-box question-bg">
+                        <div class="${boxTens}">
                             <div class="front">
                                 <img src="img/question-top.png" alt="Question mark" class="q-mark">
                             </div>
@@ -22,76 +48,26 @@ seconds.innerHTML = `<div class="flip-box kenan-bg">
                                 <img src="img/question-bottom.png" alt="Question mark" class="q-mark">
                             </div>
                         </div>
-                    </div>`;
-
-minutes.innerHTML = `<div class="flip-box threeve-bg">
-                        <div class="minutes-tens-box">
+                        </div>
+                        <div class="flip-box question-bg">
+                        <div class="${boxOnes}">
                             <div class="front">
-                                <img src="img/threeve-top.png" alt="Question mark" class="q-mark">
+                                <img src="img/question-top.png" alt="Question mark" class="q-mark">
                             </div>
                             <div class="back">
-                                <img src="img/threeve-bottom.png" alt="Question mark" class="q-mark">
+                                <img src="img/question-bottom.png" alt="Question mark" class="q-mark">
                             </div>
                         </div>
-                    </div>
-                    <div class="flip-box andy-bg">
-                        <div class="minutes-ones-box">
-                            <div class="front">
-                                <img src="img/andy-top.png" alt="Question mark" class="q-mark">
-                            </div>
-                            <div class="back">
-                                <img src="img/andy-bottom.png" alt="Question mark" class="q-mark">
-                            </div>
                         </div>
-                    </div>
-                    <div class="colon">
+                        <div class="colon">
                         <span>:</span>
                     </div>`;
+}
 
-hours.innerHTML = `<div class="flip-box farley-bg">
-                        <div class="hours-tens-box">
-                            <div class="front">
-                                <img src="img/farley-top.png" alt="Question mark" class="q-mark">
-                            </div>
-                            <div class="back">
-                                <img src="img/farley-bottom.png" alt="Question mark" class="q-mark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flip-box girl-bg">
-                        <div class="hours-ones-box">
-                            <div class="front">
-                                <img src="img/confused-girl-top.png" alt="Question mark" class="q-mark">
-                            </div>
-                            <div class="back">
-                                <img src="img/confused-girl-bottom.png" alt="Question mark" class="q-mark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="colon">
-                        <span>:</span>
-                    </div>`;
+generateQuestionMarks(minutes, "minutes-tens-box", "minutes-ones-box");
+generateQuestionMarks(hours, "hours-tens-box", "hours-ones-box");
+generateQuestionMarks(days, "days-tens-box", "days-ones-box");
 
-days.innerHTML = `<div class="flip-box scratch-bg">
-                        <div class="days-tens-box">
-                            <div class="front">
-                                <img src="img/scratch-top.png" alt="scratch mark" class="q-mark">
-                            </div>
-                            <div class="back">
-                                 <img src="img/scratch-bottom.png" alt="scratch mark" class="q-mark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flip-box blind-bg">
-                        <div class="days-ones-box">
-                            <div class="front">
-                                <img src="img/blind-top.png" alt="Blindfolded woman" class="q-mark">
-                            </div>
-                            <div class="back">
-                                <img src="img/blind-bottom.png" alt="Blindfolded woman" class="q-mark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="colon">
-                        <span>:</span>
-                    </div>`;
+let year = new Date();
+let credit = document.querySelector('.credit');
+credit.textContent = `A light-hearted expression of biblical truth | ${year.getFullYear()}.`

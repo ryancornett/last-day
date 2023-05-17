@@ -7,6 +7,9 @@
         <meta name="description" content="The Last Day Countdown">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1 class="title">The Last Day Countdown</h1>
@@ -14,7 +17,29 @@
             <div class="days"></div>
             <div class="hours"></div>
             <div class="minutes"></div>
-            <div class="seconds"></div>
+            <div class="seconds">
+                <div class="flip-box question-bg">
+                    <div class="seconds-tens-box">
+                        <div class="front">
+                            <img src="img/question-top.png" alt="Rotating image 1" class="q-mark">
+                        </div>
+                        <div class="back">
+                            <img src="img/question-bottom.png" alt="Rotating image 2" class="q-mark">
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-box rotating-bg">
+                    <div class="seconds-ones-box">
+                        <div class="front">
+                            <img src="img/question-top.png" alt="Question mark" class="top-image">
+                        </div>
+                        <div class="back">
+                            <img src="img/question-bottom.png" alt="Question mark" class="bottom-image">
+                        </div>
+                    </div>
+                    <div class="drop-box"></div>
+                </div>
+            </div>
         </div>
 
         <div class="verses">
@@ -35,7 +60,10 @@
             <h4 class="confession-references">2 Cor. 5:10, 11; 2 Thess. 1:5-7; Mark 13:35-37; Luke 12:35-40; Rev. 22:20</h4>
         </div>
 
-        <footer></footer>
+        <footer>
+            <div class="credit"></div>
+            <div class="info">Email: <span>thelastdaycountdown@gmail.com</span></div>
+        </footer>
           
           <!-- from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_box2 -->
         <script src="index.js" async defer></script>
