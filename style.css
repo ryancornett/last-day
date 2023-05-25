@@ -32,6 +32,7 @@ h1 {
 }
 
 .rotating-bg, .drop-box {
+    background-image: url(img/question-mark.png);
     background-size: var(--flip-width) calc(2.05*var(--flip-height));
 }
 
@@ -101,11 +102,11 @@ h1 {
 }
 
 .seconds-ones-box {
-    animation: flip-s 1s infinite;
+    animation: flip-s 1.2s infinite;
 }
 
 .seconds-tens-box {
-    animation: flip-ten-s 10s infinite;
+    animation: flip-ten-s 12s infinite;
 }
 
 .minutes-ones-box{
@@ -175,7 +176,7 @@ h1 {
 }
 
 .verses {
-    width: 80vw;
+    width: 70vw;
     margin: 0 auto;
     display: flex;
     border: solid 1px #eee;
@@ -209,8 +210,8 @@ h4 {
 }
 
 .confession-container {
-    width: 80vw;
-    margin: 0 auto;
+    width: 70vw;
+    margin: 2rem auto;
 }
 
 .confession-title {
@@ -237,4 +238,44 @@ footer {
 .info > span {
     font-weight: bold;
     color: #96add9;
+}
+
+@media screen and (max-width: 716px) {
+    :root {
+        --flip-width: 9vw;
+        --flip-height: 50px;
+    }
+
+    .colon {
+    font-size: 6rem;
+    }
+    
+    .verses {
+        margin: 0 auto;
+        display: block;
+        border: solid 1px #eee;
+        box-shadow: 0px 0px 10px #bbb;
+    }
+
+    .verse-container:nth-of-type(1) {
+        margin-right: unset;
+    }
+    
+    .confession-container {
+        margin: 2rem auto 6rem auto;
+    }
+    
+    footer {
+        display: block;
+        height: auto;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+
+    .info {
+        margin-left: 0;
+    }
+    
 }

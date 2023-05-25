@@ -4,15 +4,15 @@ const hours = document.querySelector('.hours');
 const days = document.querySelector('.days');
 const topImage = document.querySelector('.top-image');
 const bottomImage = document.querySelector('.bottom-image');
-const topImageArray = ["img/kenan-top.png", "img/farley-top.png", "img/confused-girl-top.png", "img/threeve-top.png", "img/blind-top.png", "img/scratch-top.png", "img/andy-top.png"];
-const bottomImageArray = ["img/kenan-bottom.png", "img/farley-bottom.png", "img/confused-girl-bottom.png", "img/threeve-bottom.png", "img/blind-bottom.png", "img/scratch-bottom.png", "img/andy-bottom.png"];
-const backgroundArray = ["img/kenan-full.png", "img/farley-full.png", "img/confused-girl-full.png", "img/threeve-full.png", "img/blind-full.png", "img/scratch-full.png", "img/andy-full.png"]
+const topImageArray = ["img/kenan-top.png", "img/farley-top.png", "img/confused-girl-top.png", "img/threeve-top.png", "img/blind-top.png", "img/andy-top.png"];
+const bottomImageArray = ["img/kenan-bottom.png", "img/farley-bottom.png", "img/confused-girl-bottom.png", "img/threeve-bottom.png", "img/blind-bottom.png", "img/andy-bottom.png"];
+const backgroundArray = ["img/kenan-full.png", "img/farley-full.png", "img/confused-girl-full.png", "img/threeve-full.png", "img/blind-full.png", "img/andy-full.png"]
 const cycleBox = document.querySelector('.seconds-ones-box');
 const rotatingBackground = document.querySelector('.rotating-bg');
-rotatingBackground.style.backgroundImage = `url(img/question-mark.png)`
+// rotatingBackground.style.backgroundImage = `url(/img/question-mark.png)`
 const dropBackground = document.querySelector('.drop-box');
 
-const oneSecondCycle = setInterval(cycleImages, 1000);
+const oneSecondCycle = setInterval(cycleImages, 1200);
 let count = 0;
 function cycleImages() {
     rotatingBackground.style.backgroundImage = `url(${backgroundArray[count]}`;
@@ -20,19 +20,19 @@ function cycleImages() {
         let flip = topImageArray[count-1];
         topImage.setAttribute('src', flip);
     } else {
-        let flip = topImageArray[6];
+        let flip = topImageArray[5];
         topImage.setAttribute('src', flip);
     };
     let drop = bottomImageArray[count];
     bottomImage.setAttribute('src', drop);
     if (count === 0) {
-        dropBackground.style.backgroundImage = `url(${backgroundArray[6]})`;
+        dropBackground.style.backgroundImage = `url(${backgroundArray[5]})`;
     } else {
         dropBackground.style.backgroundImage = `url(${backgroundArray[count-1]})`;
     };
     count++;
     if (count === topImageArray.length) {
-        drop = topImageArray[6];
+        drop = topImageArray[5];
         count = 0;
     }
 }
